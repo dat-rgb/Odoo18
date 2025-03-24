@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="lesson_html" model="lesson.odoo">
+        <field name="name">HTML</field>
+        <field name="is_active">True</field>
+    </record>
+
+    <record id="lesson_css" model="lesson.odoo">
+        <field name="name">CSS</field>
+        <field name="is_active">False</field>
+    </record>
+</odoo>
