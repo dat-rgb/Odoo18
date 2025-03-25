@@ -39,6 +39,9 @@
         'views/menu_item_lesson.xml',
         'views/menu_view.xml',
         'data/lesson_data.xml',
+        'views/block.xml',
+        'views/snippets.xml',
+        
     ],
 
     # Import các file cấu hình (chỉ gọi từ folder 'static')

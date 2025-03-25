@@ -14,9 +14,8 @@ class CourseOdoo(models.Model):
     lesson_ids = fields.One2many(
         comodel_name='lesson.odoo', inverse_name='parent_id', string='Bài học')
 
-    
-
     def set_is_active_course(self):
         for item in self:
             item.is_active = False if item.is_active else True
         return {}
+

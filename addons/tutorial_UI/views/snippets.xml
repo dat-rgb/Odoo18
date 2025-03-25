@@ -1,0 +1,8 @@
+<odoo>
+    <template id="tutorial_UI" inherit_id="website.layout" name="Trung Block">
+        <xpath expr="//div[@id='wrapwrap']" position="inside">
+            <t t-snippet="tutorial_UI.block"
+               t-thumbnail="/website/static/src/img/snippets_thumbs/s_cover.svg"/>
+        </xpath>
+    </template>
+</odoo>

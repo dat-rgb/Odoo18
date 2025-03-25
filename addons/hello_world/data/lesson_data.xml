@@ -3,30 +3,30 @@
     <!-- Danh sách khóa học -->
     <record id="course_web_dev" model="course.odoo">
         <field name="name">Web Development</field>
-         <field name="is_active">True</field>
+        <field name="is_active">True</field>
     </record>
 
     <record id="course_python" model="course.odoo">
         <field name="name">Python Programming</field>
-         <field name="is_active">True</field>
+        <field name="is_active">True</field>
     </record>
 
     <!-- Danh sách bài học -->
     <record id="lesson_html" model="lesson.odoo">
         <field name="name">HTML Basics</field>
         <field name="is_active">True</field>
-        <field name="parent_id" ref="course_web_dev"/>  <!-- Gán vào khóa học Web Dev -->
+        <field name="parent_id" ref="course_web_dev"/>  
     </record>
 
     <record id="lesson_css" model="lesson.odoo">
         <field name="name">CSS Fundamentals</field>
         <field name="is_active">True</field>
-        <field name="parent_id" ref="course_web_dev"/>  <!-- Gán vào khóa học Web Dev -->
+        <field name="parent_id" ref="course_web_dev"/>  
     </record>
 
     <record id="lesson_python_intro" model="lesson.odoo">
         <field name="name">Introduction to Python</field>
         <field name="is_active">True</field>
-        <field name="parent_id" ref="course_python"/>  <!-- Gán vào khóa học Python -->
+        <field name="parent_id" ref="course_python"/>  
     </record>
 </odoo>

@@ -18,3 +18,4 @@ class CourseOdoo(models.Model):
         for item in self:
             item.is_active = False if item.is_active else True
         return {}
+ 
