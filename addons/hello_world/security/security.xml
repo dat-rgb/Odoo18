@@ -1,8 +1,9 @@
 <odoo>
     <data>
+        <!-- Nhóm người dùng Course -->
         <record id="course_group_user" model="res.groups">
             <field name="name">Course User</field>
-            <field name="category_id" ref="base.module_category_tutorial" /> 
+            <field name="category_id" ref="base.module_category_tutorial" />
             <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
         </record>
         <record id="course_group_manager" model="res.groups">
@@ -11,6 +12,8 @@
             <field name="implied_ids" eval="[(4, ref('course_group_user'))]"/>
             <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
         </record>
+
+        <!-- Nhóm người dùng Lesson -->
         <record id="lesson_group_user" model="res.groups">
             <field name="name">Lesson User</field>
             <field name="category_id" ref="base.module_category_tutorial" />
@@ -21,6 +24,76 @@
             <field name="category_id" ref="base.module_category_tutorial" />
             <field name="implied_ids" eval="[(4, ref('lesson_group_user'))]"/>
             <field name="users" eval="[(4, ref('base.user_root')),(4, ref('base.user_admin'))]"/>
+        </record>
+
+
+
+
+
+
+
+
+        <!-- Quyền truy cập cho các mô hình Course -->
+        <record id="access_hello_world_course_user" model="ir.model.access">
+            <field name="name">Course User</field>
+            <field name="model_id" ref="hello_world.model_course_odoo"/>
+            <field name="group_id" ref="hello_world.course_group_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="access_hello_world_course_manager" model="ir.model.access">
+            <field name="name">Course Manager</field>
+            <field name="model_id" ref="hello_world.model_course_odoo"/>
+            <field name="group_id" ref="hello_world.course_group_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <!-- Quyền truy cập cho các mô hình Lesson -->
+        <record id="access_hello_world_lesson_user" model="ir.model.access">
+            <field name="name">Lesson User</field>
+            <field name="model_id" ref="hello_world.model_lesson_odoo"/>
+            <field name="group_id" ref="hello_world.lesson_group_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="access_hello_world_lesson_manager" model="ir.model.access">
+            <field name="name">Lesson Manager</field>
+            <field name="model_id" ref="hello_world.model_lesson_odoo"/>
+            <field name="group_id" ref="hello_world.lesson_group_manager"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <!-- Quyền truy cập cho Public để xem khóa học và bài học -->
+        <record id="access_hello_world_course_public" model="ir.model.access">
+            <field name="name">Public Course Access</field>
+            <field name="model_id" ref="hello_world.model_course_odoo"/>
+            <field name="group_id" ref="base.group_public"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
+        </record>
+
+        <record id="access_hello_world_lesson_public" model="ir.model.access">
+            <field name="name">Public Lesson Access</field>
+            <field name="model_id" ref="hello_world.model_lesson_odoo"/>
+            <field name="group_id" ref="base.group_public"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_write" eval="0"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_unlink" eval="0"/>
         </record>
     </data>
 </odoo>

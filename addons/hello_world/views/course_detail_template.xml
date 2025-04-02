@@ -11,6 +11,13 @@
                     <li><t t-out="lesson.name" /></li>
                 </t>
             </ul>
+
+             <!-- Nút Đăng Ký -->
+            <t t-if="course.is_active">
+                 <form action="/courses/<t t-out="course.id" />/register" method="post">
+                    <button type="submit" class="btn btn-success">Đăng ký khóa học</button>
+                </form>
+            </t>
         </div>
     </template>
 </odoo>

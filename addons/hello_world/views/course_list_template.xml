@@ -6,11 +6,9 @@
             <div class="row">
                 <t t-foreach="courses" t-as="course">
                     <div class="col-md-4 mb-4">
-                        <!-- Card hiển thị thông tin khóa học -->
                         <div class="card">
                             <div class="card-body">
                                 <img t-att-src="'/hello_world/static/description/lap-trinh.jpg'" class="card-img-top" alt="Course Image" style="width:100px;"/>
-                                <!-- Liên kết đến chi tiết khóa học -->
                                 <h5 class="card-title">
                                     
                                     <t t-out="course.name"/>

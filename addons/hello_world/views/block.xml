@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<odoo>
-    <template id="tutorial_UI.block" name="Demo Block">
-        <section class="oe_structure">
-            <p>Demo Block</p>
-        </section>
-    </template>
-</odoo>
