@@ -3,7 +3,7 @@
 import logging
 import json
 from urllib.parse import urlparse, parse_qs
-
+from odoo.http import request
 from werkzeug.utils import redirect
 from odoo import _, http
 
@@ -12,13 +12,25 @@ _logger = logging.getLogger(__name__)
 
 class MainController(http.Controller):
 
-    @http.route('/courses', type='http', auth="user", website=True)
+    @http.route('/courses', type='http', auth="public", website=True)
     def get_courses(self):
-        records = http.request.env['course.odoo'].search([])
+        records = http.request.env['course.odoo'].search([('is_active', '=', True)])
+
         return http.request.render(
             "hello_world.course_list_template",
             {"courses": records},
         )
+    
+    @http.route('/courses/<int:course_id>/detail', type='http', auth='public', website=True)
+    def get_course_detail(self, course_id):
+        course = http.request.env['course.odoo'].browse(course_id)
+        lessons = course.lesson_ids  # Lấy các bài học liên quan đến khóa học
+        return http.request.render('hello_world.course_detail_template', {
+            'course': course,
+            'lessons': lessons
+        })
+        
+        
     _payment_progess = '/payment/vnpay/payment-return/'
     
     @http.route(_payment_progess)

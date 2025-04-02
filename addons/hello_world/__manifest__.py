@@ -35,6 +35,7 @@
         'security/security.xml',
         'security/ir.model.access.csv',
         'views/course_list_template.xml',
+        'views/course_detail_template.xml',
         'views/menu_item_course.xml',
         'views/menu_item_lesson.xml',
         'views/menu_view.xml',

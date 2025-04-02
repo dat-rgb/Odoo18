@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="course_list_template" name="Danh sách khoá học">
-        <div id="wrap" class="container">
-            <h1>Các khoá học</h1>
-            <t t-foreach="courses" t-as="course">
-                <div class="row">
-
-                    <t t-set="nameOfCourse" t-value="course.name" />
-                    <span t-out="nameOfCourse" />
-
-                    <!-- Hoặc -->
-                    <!-- <span t-esc="course.name" /> -->
-,
-                    
-                    <t t-set="is_active" t-value="course.is_active" />
-                    <span t-out="is_active" />
-
-                    <!-- Hoặc -->
-                    <!-- <span t-esc="course.is_active" /> -->
-                </div>
-            </t>
+        <div id="wrap" class="container mt-5">
+            <h1 class="text-center mb-4">Danh Sách Các Khoá Học</h1>
+            <div class="row">
+                <t t-foreach="courses" t-as="course">
+                    <div class="col-md-4 mb-4">
+                        <!-- Card hiển thị thông tin khóa học -->
+                        <div class="card">
+                            <div class="card-body">
+                                <img t-att-src="'/hello_world/static/description/lap-trinh.jpg'" class="card-img-top" alt="Course Image" style="width:100px;"/>
+                                <!-- Liên kết đến chi tiết khóa học -->
+                                <h5 class="card-title">
+                                    
+                                    <t t-out="course.name"/>
+                                   
+                                </h5>
+                                <p class="card-text">
+                                    <t t-if="course.is_active">Khoá học đang mở</t>
+                                    <t t-else="course.is_active">Khoá học không mở</t>
+                                </p>
+                                <a t-att-href="'/courses/' + str(course.id) + '/detail'" class="btn btn-primary">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
         </div>
     </template>
 </odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="course_detail_template" name="Chi tiết khoá học">
+        <div id="wrap" class="container">
+            <h1><t t-out="course.name" /></h1>
+            <p><strong>Trạng thái: </strong><t t-out="course.is_active" /></p>
+
+            <h2>Các bài học trong khoá học</h2>
+            <ul>
+                <t t-foreach="lessons" t-as="lesson">
+                    <li><t t-out="lesson.name" /></li>
+                </t>
+            </ul>
+        </div>
+    </template>
+</odoo>
